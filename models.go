@@ -1,5 +1,16 @@
 package jqdatatables
 
+type JqTableColumnDirection string
+
+const (
+	ORDER_ASC  JqTableColumnDirection = "asc"
+	ORDER_DESC JqTableColumnDirection = "desc"
+)
+
+func (d JqTableColumnDirection) Valid() bool {
+	return d == ORDER_ASC || d == ORDER_DESC
+}
+
 //jQuery DataTable request model
 type JqTableRequest struct {
 	//Number of current draw action (serial)
@@ -46,11 +57,20 @@ type JqTableOrder struct {
 	Direction JqTableColumnDirection
 }
 
-//jQuery DataTable table search model
+//jQuery DataTables table search model
 type JqTableSearch struct {
 	//Value to search
 	Value string
 
 	//Set if we should use regular expression
 	Regex bool
+}
+
+//JQuery DataTables object source response
+type JqTableResponse struct {
+	Draw            int `json:"draw"`
+	RecordsTotal    int `json:"recordsTotal"`
+	RecordsFiltered int `json:"recordsFiltered"`
+
+	Data interface{} `json:"data"`
 }

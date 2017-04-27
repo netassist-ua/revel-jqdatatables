@@ -9,13 +9,6 @@ import (
 	"strings"
 )
 
-type JqTableColumnDirection string
-
-const (
-	ORDER_ASC  JqTableColumnDirection = "asc"
-	ORDER_DESC JqTableColumnDirection = "desc"
-)
-
 var (
 	column_regexp *regexp.Regexp
 	order_regexp  *regexp.Regexp
