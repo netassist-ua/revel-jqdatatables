@@ -2,7 +2,7 @@ package jqdatatables
 
 import (
 	"errors"
-	"github.com/revel/revel"
+	"github.com/netassist-ua/revel"
 	"regexp"
 	"sort"
 	"strconv"
